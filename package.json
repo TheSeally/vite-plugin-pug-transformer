@@ -7,7 +7,7 @@
     "test": "uvu tests .test.js$ && eslint ."
   },
   "engines": {
-    "node": ">=12.2.0"
+    "node": ">=12.22.0"
   },
   "repository": {
     "type": "git",
