@@ -4,7 +4,7 @@
   "description": "Vite plugin for supporting pug templates",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "uvu tests .test.js$ && eslint ."
   },
   "engines": {
     "node": ">=12.2.0"
@@ -23,9 +23,11 @@
   "bugs": {
     "url": "https://github.com/TheSeally/vite-plugin-pug-transformer/issues"
   },
+  "type": "module",
   "homepage": "https://github.com/TheSeally/vite-plugin-pug-transformer#readme",
   "devDependencies": {
     "eslint": "^8.8.0",
+    "uvu": "^0.5.3",
     "vite": "^2.7.13"
   },
   "dependencies": {
@@ -41,6 +43,7 @@
     },
     "extends": "eslint:recommended",
     "parserOptions": {
+      "ecmaVersion": "latest",
       "sourceType": "module"
     },
     "rules": {
