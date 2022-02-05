@@ -1,0 +1,27 @@
+{
+  "name": "vite-plugin-pug-transformer",
+  "version": "1.0.0",
+  "description": "Vite plugin for supporting pug templates",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=12.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheSeally/vite-plugin-pug-transformer.git"
+  },
+  "keywords": [
+    "vite-plugin",
+    "pug",
+    "vite"
+  ],
+  "author": "TheSeally",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TheSeally/vite-plugin-pug-transformer/issues"
+  },
+  "homepage": "https://github.com/TheSeally/vite-plugin-pug-transformer#readme"
+}
