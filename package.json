@@ -27,6 +27,12 @@
   "devDependencies": {
     "eslint": "^8.8.0"
   },
+  "dependencies": {
+    "pug": "^3.0.2"
+  },
+  "peerDependencies": {
+    "vite": "^2.5.10"
+  },
   "eslintConfig": {
     "env": {
       "es6": true,
