@@ -23,5 +23,37 @@
   "bugs": {
     "url": "https://github.com/TheSeally/vite-plugin-pug-transformer/issues"
   },
-  "homepage": "https://github.com/TheSeally/vite-plugin-pug-transformer#readme"
+  "homepage": "https://github.com/TheSeally/vite-plugin-pug-transformer#readme",
+  "devDependencies": {
+    "eslint": "^8.8.0"
+  },
+  "eslintConfig": {
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "sourceType": "module"
+    },
+    "rules": {
+      "indent": [
+        "error",
+        2
+      ],
+      "linebreak-style": [
+        "error",
+        "unix"
+      ],
+      "quotes": [
+        "error",
+        "single"
+      ],
+      "semi": [
+        "error",
+        "always"
+      ],
+      "prefer-const": "error"
+    }
+  }
 }
