@@ -1,3 +1,5 @@
+[![Test](https://github.com/TheSeally/vite-plugin-pug-transformer/actions/workflows/test.yml/badge.svg)](https://github.com/TheSeally/vite-plugin-pug-transformer/actions/workflows/test.yml)
+
 # Vite plugin pug transformer
 This plugin adds support for pug template engine in vite html entrypoint.
 
