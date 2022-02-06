@@ -1,5 +1,10 @@
-import { join } from 'path';
+import path from 'path';
+import colors from 'picocolors';
 import { compileFile } from 'pug';
+
+function getShortName(file, root) {
+  return file.startsWith(root + '/') ? path.posix.relative(root, file) : file;
+}
 
 export default function ({ pugOptions = {}, pugLocals = {} } = {}) {
   return {
@@ -7,6 +12,11 @@ export default function ({ pugOptions = {}, pugLocals = {} } = {}) {
 
     handleHotUpdate({ file, server }) {
       if (file.endsWith('.pug')) {
+        server.config.logger.info(
+          colors.green('page reload ') + colors.dim(getShortName(file, server.config.root)),
+          { clear: true, timestamp: true }
+        );
+
         server.ws.send({
           type: 'full-reload',
         });
@@ -26,7 +36,7 @@ export default function ({ pugOptions = {}, pugLocals = {} } = {}) {
           }
 
           const entryFileDir = filename.replace(/(.*)\/.*\.html$/, '$1');
-          const templateFilePath = join(entryFileDir, rawTemplatePath);
+          const templateFilePath = path.join(entryFileDir, rawTemplatePath);
 
           return compileFile(templateFilePath, pugOptions)(pugLocals);
         });
