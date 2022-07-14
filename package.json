@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-pug-transformer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Vite plugin for supporting pug templates",
   "main": "src/index.js",
   "scripts": {
