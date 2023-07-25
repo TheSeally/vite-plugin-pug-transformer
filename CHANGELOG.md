@@ -12,5 +12,4 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Fix publish npm
 
 ## 1.0
-
 - Initial release
