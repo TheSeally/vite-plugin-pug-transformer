@@ -35,6 +35,10 @@ export default function ({ pugOptions = {}, pugLocals = {} } = {}) {
             throw new Error(`Template path not specified for ${matchedString}`);
           }
 
+          if (!rawTemplatePath.startsWith("./") && !rawTemplatePath.startsWith("/")) {
+            return compileFile(rawTemplatePath, pugOptions)(pugLocals);
+          }
+
           const entryFileDir = filename.replace(/(.*)\/.*\.html$/, '$1');
           const templateFilePath = path.join(entryFileDir, rawTemplatePath);
 
