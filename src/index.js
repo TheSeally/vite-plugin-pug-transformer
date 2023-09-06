@@ -28,7 +28,7 @@ export default function ({ pugOptions = {}, pugLocals = {} } = {}) {
     transformIndexHtml: {
       enforce: 'pre',
       transform(html, { filename }) {
-        const updatedHtml = html.replace(/<template.*?data-type="pug".*?(\/>|<\/template>)/g, (matchedString) => {
+        const updatedHtml = html.replace(/<template(.|\n)*?data-type="pug"(.|\n)*?(\/>|<\/template>)/g, (matchedString) => {
           const [, rawTemplatePath] = matchedString.match(/data-src=["'](.*?)["']/) || [];
 
           if (!rawTemplatePath) {
