@@ -183,4 +183,39 @@ test('should work multiple templates', () => {
   assert.equal(result, expectedHtml);
 });
 
+test('should when template is on multiple lines', () => {
+  // ARRANGE
+  const rawHtml = `
+    <body>
+      <p>
+        Hello, World!
+          <template
+            data-type="pug"
+            data-src="./template.pug"
+          ></template>
+          <template
+            data-type="pug"
+            data-src="./locals.pug"
+          ></template>
+      </p>
+    </body>
+  `;
+  const expectedHtml = `
+    <body>
+      <p>
+        Hello, World!
+          <p>Pug</p>
+          <p>Vite is the best</p>
+      </p>
+    </body>
+  `;
+
+  // ACTION
+  const result = pugPlugin({ pugLocals: { bundler: 'Vite' } })
+    .transformIndexHtml.transform(rawHtml, { filename: entryFilePath });
+
+  // ASSERT
+  assert.equal(result, expectedHtml);
+});
+
 test.run();
