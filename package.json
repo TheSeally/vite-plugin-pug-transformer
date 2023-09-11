@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-pug-transformer",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Vite plugin for supporting pug templates",
   "main": "src/index.js",
   "scripts": {
@@ -26,9 +26,9 @@
   "type": "module",
   "homepage": "https://github.com/TheSeally/vite-plugin-pug-transformer#readme",
   "devDependencies": {
-    "eslint": "^8.45.0",
+    "eslint": "^8.49.0",
     "uvu": "^0.5.6",
-    "vite": "^4.4.7"
+    "vite": "^4.4.9"
   },
   "dependencies": {
     "picocolors": "^1.0.0",

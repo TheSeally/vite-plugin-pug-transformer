@@ -183,15 +183,15 @@ test('should work multiple templates', () => {
   assert.equal(result, expectedHtml);
 });
 
-test('should when template is on multiple lines', () => {
+test('should transform when template is on multiple lines', () => {
   // ARRANGE
   const rawHtml = `
     <body>
       <p>
         Hello, World!
           <template
-            data-type="pug"
             data-src="./template.pug"
+            data-type="pug"
           ></template>
           <template
             data-type="pug"
