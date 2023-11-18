@@ -7,7 +7,7 @@ function getShortName(file, root) {
 }
 
 export default function ({ pugOptions = {}, pugLocals = {} } = {}) {
-  return {
+  const plugin = {
     name: 'vite-plugin-pug-transformer',
 
     handleHotUpdate({ file, server }) {
@@ -26,8 +26,8 @@ export default function ({ pugOptions = {}, pugLocals = {} } = {}) {
     },
 
     transformIndexHtml: {
-      enforce: 'pre',
-      transform(html, { filename }) {
+      order: 'pre',
+      handler(html, { filename }) {
         const updatedHtml = html.replace(/<template(.|\n)*?data-type="pug"(.|\n)*?(\/>|<\/template>)/g, (matchedString) => {
           const [, rawTemplatePath] = matchedString.match(/data-src=["'](.*?)["']/) || [];
 
@@ -45,4 +45,10 @@ export default function ({ pugOptions = {}, pugLocals = {} } = {}) {
       },
     },
   };
+
+  // Properties for supporting old versions of Vite
+  plugin.transformIndexHtml.enforce = plugin.transformIndexHtml.order;
+  plugin.transformIndexHtml.transform = plugin.transformIndexHtml.handler;
+
+  return plugin;
 }
