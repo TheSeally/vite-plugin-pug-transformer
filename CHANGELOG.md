@@ -2,6 +2,9 @@
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+# 1.0.5
+- Add Vite 5.0 support
+
 # 1.0.4
 - Fix rendering for template with multiline attributes
 

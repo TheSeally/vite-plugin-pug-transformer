@@ -14,7 +14,7 @@ test('should work without template tag', () => {
   const html = '<body><p>Hello, World!</p></body>';
 
   // ACTION
-  const result = pugPlugin().transformIndexHtml.transform(html, {});
+  const result = pugPlugin().transformIndexHtml.handler(html, {});
 
   // ASSERT
   assert.equal(result, html);
@@ -32,7 +32,7 @@ test('should ignore tempalate tag without necessary type', () => {
   `;
 
   // ACTION
-  const result = pugPlugin().transformIndexHtml.transform(html, {});
+  const result = pugPlugin().transformIndexHtml.handler(html, {});
 
   // ASSERT
   assert.equal(result, html);
@@ -51,7 +51,7 @@ test('should throw error when there is no path in template tag', () => {
   `;
 
   // ACTION
-  const transformFn = () => pugPlugin().transformIndexHtml.transform(html, {});
+  const transformFn = () => pugPlugin().transformIndexHtml.handler(html, {});
 
   // ASSERT
   assert.throws(transformFn, 'Template path not specified for <template data-type="pug"></template>');
@@ -69,7 +69,7 @@ test('should throw error when there is no path in self-closed template tag', () 
   `;
 
   // ACTION
-  const transformFn = () => pugPlugin().transformIndexHtml.transform(html, {});
+  const transformFn = () => pugPlugin().transformIndexHtml.handler(html, {});
 
   // ASSERT
   assert.throws(transformFn, 'Template path not specified for <template data-type="pug" />');
@@ -95,7 +95,7 @@ test('should transform template tag', () => {
   `;
 
   // ACTION
-  const result = pugPlugin().transformIndexHtml.transform(rawHtml, { filename: entryFilePath });
+  const result = pugPlugin().transformIndexHtml.handler(rawHtml, { filename: entryFilePath });
 
   // ASSERT
   assert.equal(result, expectedHtml);
@@ -121,7 +121,7 @@ test('should transform self-closed template tag', () => {
   `;
 
   // ACTION
-  const result = pugPlugin().transformIndexHtml.transform(rawHtml, { filename: entryFilePath });
+  const result = pugPlugin().transformIndexHtml.handler(rawHtml, { filename: entryFilePath });
 
   // ASSERT
   assert.equal(result, expectedHtml);
@@ -148,7 +148,7 @@ test('should work with pug locals', () => {
 
   // ACTION
   const result = pugPlugin({ pugLocals: { bundler: 'Vite' } })
-    .transformIndexHtml.transform(rawHtml, { filename: entryFilePath });
+    .transformIndexHtml.handler(rawHtml, { filename: entryFilePath });
 
   // ASSERT
   assert.equal(result, expectedHtml);
@@ -177,7 +177,7 @@ test('should work multiple templates', () => {
 
   // ACTION
   const result = pugPlugin({ pugLocals: { bundler: 'Vite' } })
-    .transformIndexHtml.transform(rawHtml, { filename: entryFilePath });
+    .transformIndexHtml.handler(rawHtml, { filename: entryFilePath });
 
   // ASSERT
   assert.equal(result, expectedHtml);
@@ -212,10 +212,19 @@ test('should transform when template is on multiple lines', () => {
 
   // ACTION
   const result = pugPlugin({ pugLocals: { bundler: 'Vite' } })
-    .transformIndexHtml.transform(rawHtml, { filename: entryFilePath });
+    .transformIndexHtml.handler(rawHtml, { filename: entryFilePath });
 
   // ASSERT
   assert.equal(result, expectedHtml);
 });
+
+test('should have fallback properties for supporting old Vite versions', () => {
+  // ARRANGE
+  const plugin = pugPlugin();
+
+  // ASSERT
+  assert.is(plugin.transformIndexHtml.handler, plugin.transformIndexHtml.transform);
+  assert.is(plugin.transformIndexHtml.order, plugin.transformIndexHtml.enforce);
+})
 
 test.run();
