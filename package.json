@@ -28,7 +28,7 @@
   "devDependencies": {
     "eslint": "^8.57.0",
     "uvu": "^0.5.6",
-    "vite": "^5.2.12"
+    "vite": "^5.4.8"
   },
   "dependencies": {
     "picocolors": "^1.0.1",
