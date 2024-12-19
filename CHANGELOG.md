@@ -2,6 +2,9 @@
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+# 1.0.7
+- Remove unnecessary dir from package to reduce total size
+
 # 1.0.6
 - Add Vite 5.0 support
 

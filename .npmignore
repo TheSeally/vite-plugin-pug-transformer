@@ -3,5 +3,6 @@ pnpm-lock.yaml
 
 .github/
 tests/
+dist/
 
 **/*.test.*
