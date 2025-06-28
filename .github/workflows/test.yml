@@ -19,11 +19,10 @@ jobs:
       with:
         version: latest
 
-    - name: Use Node.js 18
+    - name: Use Node.js 22
       uses: actions/setup-node@v2
       with:
-        node-version: '18.x'
-        cache: 'pnpm'
+        node-version: '22.12'
 
     - run: pnpm install --frozen-lockfile --ignore-scripts
     - run: pnpm test
