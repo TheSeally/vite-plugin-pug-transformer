@@ -16,9 +16,10 @@ Plugin uses Vite specific hook (`transformIndexHtml`) for transforming pug into 
 ## Requirements
 - Vite v2+
 - Node.js version depends on Vite version:
-  - Vite v2 requires Node.js v12.22 or higher;
-  - Vite v3, v4 requires Node.js v14.18 or higher;
-  - Vite v5, v6 requires Node.js 18, 20, and 22+;
+  - Vite v2 requires Node.js 12.22 or higher;
+  - Vite v3, v4 requires Node.js 14.18 or higher;
+  - Vite v5, v6 requires Node.js 18, 20 or 22+;
+  - Vite v7 requires Node.js 20.19+ or 22.12+;
 
 ## Installation
 You can use any package manager to install plugin:
