@@ -4,7 +4,8 @@
   "description": "Vite plugin for supporting pug templates",
   "main": "src/index.js",
   "scripts": {
-    "test": "uvu tests .test.js$ && eslint ."
+    "lint": "eslint .",
+    "test": "uvu tests .test.js$"
   },
   "engines": {
     "node": ">=12.22.0"
