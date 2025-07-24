@@ -1,0 +1,17 @@
+name: Prepare environment
+description: Setup Node.js and pnpm environment
+runs:
+  using: "composite"
+  steps:
+    - name: Install pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: latest
+
+    - name: Use Node.js 22
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22.12'
+
+    - run: pnpm install --frozen-lockfile --ignore-scripts
+      shell: bash
